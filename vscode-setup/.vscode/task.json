@@ -1,0 +1,31 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Compile and Run",
+        "type": "shell",
+        "command": "bash",
+        "args": [
+          "-c",
+          "g++ -g -Dchandan ${relativeFile} -o ${fileBasenameNoExtension}.out && ./${fileBasenameNoExtension}.out < getin.txt > getout.txt && rm ${fileBasenameNoExtension}.out"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": {
+          "owner": "cpp",
+          "fileLocation": ["relative", "${workspaceRoot}"],
+          "pattern": {
+            "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "severity": 4,
+            "message": 5
+          }
+        }
+      }
+    ]
+  }
+  
